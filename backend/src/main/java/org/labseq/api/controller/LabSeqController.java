@@ -40,6 +40,13 @@ public class LabSeqController {
         return buildSequence(n);
     }
 
+    @RequestMapping(value = "labseq/{n}", method = RequestMethod.POST)
+    @ResponseStatus(HttpStatus.OK)
+    @Cacheable(value = "postIndexCache")
+    public String postIndex(@PathVariable @NotNull @Min(0) @Max(20000) Integer n) {
+        return buildSequence(n);
+    }
+
     private static String buildSequence(Integer n) {
         for (int key = 4; key <= n; key++) {
             int keyFinal = key;
