@@ -36,16 +36,16 @@ public class LabSeqController {
     @RequestMapping(value = "labseq/{n}", method = RequestMethod.GET)
     @ResponseStatus(HttpStatus.OK)
     @Cacheable(value = "getIndexCache")
-    public BigInteger getIndex(@PathVariable @NotNull @Min(value = 0) @Max(value = 20000) Integer n) {
+    public String getIndex(@PathVariable @NotNull @Min(value = 0) @Max(value = 20000) Integer n) {
         return buildSequence(n);
     }
 
-    private static BigInteger buildSequence(Integer n) {
+    private static String buildSequence(Integer n) {
         for (int key = 4; key <= n; key++) {
             int keyFinal = key;
             labSeqMap.computeIfAbsent(key, value -> labSeqMap.get(keyFinal - 4).add(labSeqMap.get(keyFinal - 3)));
         }
-        return labSeqMap.get(n);
+        return labSeqMap.get(n).toString();
     }
 
 }
