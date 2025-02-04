@@ -1,59 +1,51 @@
-# Frontend
+# LabSeq Demo Test
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.2.
+## Docker / Docker Compose
 
-## Development server
+To build the containers and pull the images for both backend and frontend, execute the following command,in the root project folder:
 
-To start a local development server, run:
+ `docker compose build`
 
-```bash
-ng serve
-```
+ To run both containers, in detached mode, execute the following command,in the root project folder:
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+ `docker compose up -d`
 
-## Code scaffolding
+ The application, backend and frontend,  will be deployed and will be available in your browser at:
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+`http://localhost`
 
-```bash
-ng generate component component-name
-```
+Prerequisites for the application are:
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+- Java Development Kit (>=21)
+- Maven (>= 3.x)
+- Node (>= v19.x.x)
+- Angular (>= 19.x)
+- Docker, Docker Compose (>= 20.x.x) (*Optional*)
 
-```bash
-ng generate --help
-```
+## Backend
 
-## Building
+To build the application backend execute the following command, in the backend folder:
 
-To build the project run:
+`mvn clean install`
 
-```bash
-ng build
-```
+To deploy and run the application backend execute the following command, in the backend folder:
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+`mvn spring-boot:run`
 
-## Running unit tests
+The application will be deployed and Swagger API REST documentation will be available in your browser at:
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+`http://localhost:8080/swagger-ui/index.html`
 
-```bash
-ng test
-```
+## Frontend
 
-## Running end-to-end tests
+To build the application frontend execute the following command, in the frontend folder:
 
-For end-to-end (e2e) testing, run:
+`npm install`
 
-```bash
-ng e2e
-```
+To run the application frontend execute the following command, in the frontend folder:
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+`npm run start`
 
-## Additional Resources
+The application will be deployed and will be available in your browser at: 
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+`http://localhost:4200`

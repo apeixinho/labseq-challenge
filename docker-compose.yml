@@ -1,0 +1,15 @@
+
+services:
+  frontend:
+    build: frontend
+    container_name: labseq-frontend
+    ports:
+    - "80:4200"
+    depends_on:
+    - backend
+
+  backend: 
+    build: backend
+    container_name: labseq-backend
+    ports:
+    - "8080:8080"
