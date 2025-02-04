@@ -1,4 +1,4 @@
-package main.java.org.labseq;
+package org.labseq;
 
 import io.quarkus.cache.CacheResult;
 import jakarta.validation.constraints.Min;

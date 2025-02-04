@@ -1,4 +1,4 @@
-package test.java.org.labseq;
+package org.labseq;
 
 import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
