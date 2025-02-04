@@ -1,0 +1,34 @@
+<div class="container">
+  <h1>{{title}}</h1>
+
+  <form [formGroup]="aForm" (ngSubmit)="postResult()">
+    <mat-form-field appearance="fill">
+      <mat-label>Enter sequence index</mat-label>
+      <input matInput type="number" formControlName="index2Compute">
+      @if (aForm.get('index2Compute')?.errors?.['required']) {
+        <mat-error>Index is required</mat-error>
+      }
+      @if (aForm.get('index2Compute')?.errors?.['min'] || aForm.get('index2Compute')?.errors?.['max']) {
+        <mat-error>Index must be between 0 and 20000</mat-error>
+      }
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="!aForm.valid || isLoading">
+      Calculate
+    </button>
+  </form>
+
+  <div class="result-section">
+    @if (isLoading) {
+      <mat-spinner diameter="40"></mat-spinner>
+    }
+
+    @if (error) {
+      <div class="error-message">{{error}}</div>
+    }
+
+    @if (result) {
+      <div class="result">Result: {{result}}</div>
+    }
+  </div>
+</div>
